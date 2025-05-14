@@ -17,7 +17,7 @@ const initialTask: Omit<Task, 'id' | 'createdAt'> = {
   completed: false,
   startDate: new Date(),
   dueDate: null,
-  priority: 'medium',
+  priority: 'low',
   categoryId: null,
   recurrence: null,
 };
@@ -181,13 +181,13 @@ const TaskForm: React.FC<TaskFormProps> = ({ task, isOpen, onClose }) => {
                   onChange={(e) => handleDateChange('startDate', new Date(e.target.value))}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <button
+                {/*<button
                   type="button"
                   onClick={() => setShowCalendar(true)}
                   className="absolute right-2 top-2 text-gray-400 hover:text-blue-500"
                 >
                   <Calendar className="h-5 w-5" />
-                </button>
+                </button>*/}
               </div>
             </div>
             

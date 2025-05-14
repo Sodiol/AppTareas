@@ -6,6 +6,8 @@ import Header from './components/Header';
 import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
 import CategoryManager from './components/CategoryManager';
+import TaskCalendar from './components/TaskCalendar';
+
 
 function App() {
   const [taskToEdit, setTaskToEdit] = useState<Task | undefined>(undefined);
@@ -17,10 +19,10 @@ function App() {
     setShowTaskForm(true);
   };
 
-  const handleEditTask = (task: Task) => {
-    setTaskToEdit(task);
-    setShowTaskForm(true);
-  };
+  const handleEditTask = (task: Task | null) => {
+  setTaskToEdit(task ?? undefined); // null se convierte en undefined
+  setShowTaskForm(true);
+};
 
   const handleCloseTaskForm = () => {
     setShowTaskForm(false);
@@ -50,6 +52,8 @@ function App() {
           >
             <PlusCircle className="h-6 w-6" />
           </button>
+
+          
         </main>
         
         <TaskForm
@@ -62,6 +66,16 @@ function App() {
           isOpen={showCategoryManager}
           onClose={() => setShowCategoryManager(false)}
         />
+         <TaskCalendar />
+
+          <button
+            onClick={handleAddTask}
+            className="fixed bottom-6 right-6 p-3 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300 sm:hidden"
+            title="Nueva tarea"
+          >
+            <PlusCircle className="h-6 w-6" />
+          </button>
+
       </div>
     </TaskProvider>
   );

@@ -4,6 +4,7 @@ import { TaskCategory } from '../types';
 import { useTaskContext } from '../context/TaskContext';
 import CategoryForm from './CategoryForm';
 
+
 interface CategoryManagerProps {
   isOpen: boolean;
   onClose: () => void;

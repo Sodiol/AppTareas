@@ -32,7 +32,7 @@ const TaskSort: React.FC = () => {
   return (
     <div className="mb-4 flex items-center flex-wrap">
       <span className="text-sm text-gray-500 mr-2">Ordenar por:</span>
-      <div className="flex flex-wrap gap-2">
+       <div className="flex flex-wrap gap-2">
         {options.map((option) => (
           <button
             key={option.value}

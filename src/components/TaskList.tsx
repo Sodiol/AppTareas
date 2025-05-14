@@ -8,7 +8,7 @@ import { Task } from '../types';
 import { useTaskContext } from '../context/TaskContext';
 
 const TaskList: React.FC<{
-  onEditTask: (task: Task) => void;
+  onEditTask: (task: Task | null) => void;
 }> = ({ onEditTask }) => {
   const { filteredTasks, filterOptions } = useTaskContext();
   const [showFilters, setShowFilters] = useState(false);
@@ -70,16 +70,8 @@ const TaskList: React.FC<{
         <EmptyState
           message={getEmptyStateMessage()}
           actionText="Crear nueva tarea"
-          onAction={() => onEditTask({
-            id: '',
-            title: '',
-            description: '',
-            completed: false,
-            createdAt: new Date(),
-            dueDate: null,
-            priority: 'medium',
-            categoryId: null,
-          })}
+          onAction={() => onEditTask(null)}
+
         />
       )}
     </div>
